@@ -1,6 +1,6 @@
 package com.google.code.p.bladerotor.client;
 
-import com.google.code.p.bladerotor.shared.Blade;
+import com.google.code.p.bladerotor.shared.TextBlade;
 import com.google.code.p.bladerotor.shared.ImageBlade;
 import com.google.code.p.bladerotor.shared.Rotor;
 import com.google.gwt.core.client.EntryPoint;
@@ -16,14 +16,14 @@ public class BladeRotor implements EntryPoint {
 	interface Binder extends UiBinder<DockLayoutPanel, BladeRotor> { }
 	private static final Binder binder = GWT.create(Binder.class);
 
-	private Blade blade1 = new Blade("Test blade 1");
-	private Blade blade2 = new Blade("Test blade 2");
+	private TextBlade blade1 = new TextBlade("Test blade 1");
+	private TextBlade blade2 = new TextBlade("Test blade 2");
 	private ImageBlade blade3 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
-	private Blade blade4 = new Blade("Test blade 4");
-	private Blade blade5 = new Blade("Test blade 5");
-	private Blade blade6 = new Blade("Test blade 6");
-	private Blade blade7 = new Blade("Test blade 7");
-	private Blade blade8 = new Blade("Test blade 8");
+	private TextBlade blade4 = new TextBlade("Test blade 4");
+	private TextBlade blade5 = new TextBlade("Test blade 5");
+	private TextBlade blade6 = new TextBlade("Test blade 6");
+	private TextBlade blade7 = new TextBlade("Test blade 7");
+	private TextBlade blade8 = new TextBlade("Test blade 8");
 	
 	private Rotor myRotor = new Rotor();
 	

@@ -2,20 +2,21 @@ package com.google.code.p.bladerotor.client;
 
 import com.google.code.p.bladerotor.shared.ImageBlade;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
 
 public class ImageBladePanel extends BladePanel {
 	
-	private Image myImage = new Image();
-	private ImageBlade myBlade;
+	protected Image myImage = new Image();
+	protected ImageBlade myImageBlade;
 	
 	public ImageBladePanel(ImageBlade blade) {
 		super(blade);
 		
+		myImageBlade = (ImageBlade) myBlade;
+		
 		setWidget(myImage);
 		
-		myImage.setUrl(myBlade.getUrl());
-		myImage.setVisibleRect(0, 0, 100, 50);
+		myImage.setUrl(myImageBlade.getUrl());
+		//myImage.setVisibleRect(0, 0, 100, 50);
 		myImage.setVisible(true);
 		
 		show();

@@ -10,10 +10,11 @@ import com.google.gwt.user.client.ui.SimplePanel;
 
 public class RotorPanel extends SimplePanel {
 	private ArrayList<BladePanel> myBlades = new ArrayList<BladePanel>();
+	private BladePanelFactory myBladePanelFactory = new BladePanelFactory();
 	private BladePanel myFocus;
 	private Rotor myRotor;
 	private int myVisibleNum;
-	private int myMoveTime = 1000; //in milliseconds
+	private int myMoveTime = 2000; //in milliseconds
 	private int myMoveStep = 100;
 
 	private int firstPos = 0;
@@ -35,7 +36,7 @@ public class RotorPanel extends SimplePanel {
 
 		for (int i = 0; i < myRotor.size(); i++) {
 			Blade nextBlade = myRotor.getBlade(i);
-			BladePanel myBlade = new BladePanel(nextBlade);
+			BladePanel myBlade = myBladePanelFactory.getPanel(nextBlade);
 			myBlades.add(myBlade);
 		}
 	}
@@ -59,7 +60,6 @@ public class RotorPanel extends SimplePanel {
 				moveBlade(i, newX, i);
 			} else {
 				// TODO park
-				//Window.alert("problem");
 			}
 		}
 	}

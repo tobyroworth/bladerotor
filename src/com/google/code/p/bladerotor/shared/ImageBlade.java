@@ -2,7 +2,7 @@ package com.google.code.p.bladerotor.shared;
 
 public class ImageBlade extends Blade {
 	
-	private String myUrl;
+	protected String myUrl;
 	
 	public ImageBlade(String url) {
 		setUrl(url);
