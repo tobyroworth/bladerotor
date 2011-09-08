@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.google.code.p.bladerotor.shared.Blade;
 import com.google.code.p.bladerotor.shared.Rotor;
+import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.SimplePanel;
@@ -21,13 +22,13 @@ public class RotorPanel extends SimplePanel {
 	private int xOffset = 0;
 	private int xResetCount = 0;
 
-	private int height = 600;
+	//TODO get width and height properly
+	private int height = 800;
 	private int width = 1000;
 
 	public RotorPanel() {
 		// TODO add a rotor in somehow
 
-		setVisibleNum(7);
 	}
 
 	public void setRotor(Rotor rotor) {
@@ -38,14 +39,33 @@ public class RotorPanel extends SimplePanel {
 			Blade nextBlade = myRotor.getBlade(i);
 			BladePanel myBlade = myBladePanelFactory.getPanel(nextBlade);
 			myBlades.add(myBlade);
+			myBlades.get(i).show();
 		}
+		
 	}
 
 	public void setVisibleNum(int num) {
 		myVisibleNum = num;
 	}
+	
+	public int setVisibleNum() {
+		int workingWidth = width;
+		int workingVisibleNum = 0;
+		
+		while (workingWidth >= 0 && workingVisibleNum < myBlades.size()) {
+			int width = myBlades.get(workingVisibleNum).getOffsetWidth();
+			workingWidth -= width;
+			workingVisibleNum++;
+		}
+		
+		myVisibleNum = workingVisibleNum--;
+		
+		return myVisibleNum;
+	}
 
 	public void moveBlades() {
+		
+		setVisibleNum();
 
 		double width = getWidth();
 
@@ -69,6 +89,9 @@ public class RotorPanel extends SimplePanel {
 		int totalSteps = myMoveTime/myMoveStep;
 
 		int delayTime = myMoveStep * delayNum;
+		
+		int zIndex = 30 - index;
+		setBladeZIndex(index, zIndex);
 
 		for (int i = 1; i <= totalSteps; i++) {
 			final int tempX = i * x / totalSteps;
@@ -98,6 +121,10 @@ public class RotorPanel extends SimplePanel {
 		int newY = y - myBlades.get(index).getCenterYOffset();
 
 		myBlades.get(index).setPopupPosition(newX, newY);
+	}
+	
+	private void setBladeZIndex(int index, int zIndex) {
+		DOM.setIntStyleAttribute(myBlades.get(index).getElement(), "zIndex", zIndex);
 	}
 
 	private int getElipseY(double x) {

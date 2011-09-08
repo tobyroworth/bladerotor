@@ -16,7 +16,9 @@ public class ImageBladePanel extends BladePanel {
 		setWidget(myImage);
 		
 		myImage.setUrl(myImageBlade.getUrl());
-		//myImage.setVisibleRect(0, 0, 100, 50);
+		
+		//TODO find an actual way of getting offset width to be correct
+		myImage.setVisibleRect(0, 0, 200, 100);
 		myImage.setVisible(true);
 		
 		show();

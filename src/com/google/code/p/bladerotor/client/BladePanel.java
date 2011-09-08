@@ -23,8 +23,8 @@ public abstract class BladePanel extends DecoratedPopupPanel {
 
 		//setTitle(myBlade.getName());
 		
-		setPopupPosition(0, 0);
 		setVisible(true);
+		setPopupPosition(-500, -500);
 		super.show();
 	}
 	
