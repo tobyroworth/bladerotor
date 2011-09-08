@@ -17,14 +17,17 @@ public class BladeRotor implements EntryPoint {
 	interface Binder extends UiBinder<DockLayoutPanel, BladeRotor> { }
 	private static final Binder binder = GWT.create(Binder.class);
 
-	private YouTubeBlade blade1 = new YouTubeBlade("YouTube Pirates", "http://www.youtube.com/embed/HlLbwB2gIDk?wmode=transparent");
-	private TextBlade blade2 = new TextBlade("Test blade 2");
-	private ImageBlade blade3 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
-	private TextBlade blade4 = new TextBlade("Test blade 4");
-	private TextBlade blade5 = new TextBlade("Test blade 5");
-	private YouTubeBlade blade6 = new YouTubeBlade("YouTube Bethany", "http://www.youtube.com/embed/S1HCT1UHmmQ?wmode=transparent");
-	private TextBlade blade7 = new TextBlade("Test blade 7");
-	private TextBlade blade8 = new TextBlade("Test blade 8");
+	private YouTubeBlade blade1 = new YouTubeBlade("YouTube Pirates", "http://www.youtube.com/embed/HlLbwB2gIDk");
+	private ImageBlade blade2 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private YouTubeBlade blade3 = new YouTubeBlade("YouTube Bethany", "http://www.youtube.com/embed/S1HCT1UHmmQ");
+	private ImageBlade blade4 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private ImageBlade blade5 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private ImageBlade blade6 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private ImageBlade blade7 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private ImageBlade blade8 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private ImageBlade blade9 = new ImageBlade("Image test", "http://www.google.com/images/logo.gif");
+	private TextBlade blade10 = new TextBlade("Test blade 7");
+	private TextBlade blade11 = new TextBlade("Test blade 8");
 	
 	private Rotor myRotor = new Rotor();
 	
@@ -44,6 +47,9 @@ public class BladeRotor implements EntryPoint {
 		myRotor.addBlade(blade6);
 		myRotor.addBlade(blade7);
 		myRotor.addBlade(blade8);
+		myRotor.addBlade(blade9);
+		myRotor.addBlade(blade10);
+		myRotor.addBlade(blade11);
 		
 	}
 	
@@ -65,7 +71,6 @@ public class BladeRotor implements EntryPoint {
 		
 		root.add(outer);
 		root.forceLayout();
-		
 		mainRotor.moveBlades();
 	}
 
