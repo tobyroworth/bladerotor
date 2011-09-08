@@ -1,8 +1,8 @@
 package com.google.code.p.bladerotor.shared;
 
-public class Blade {
+public abstract class Blade {
 
-	String myName = new String();
+	protected String myName = new String();
 
 	public Blade() {
 		
@@ -19,5 +19,5 @@ public class Blade {
 	public void setName(String myName) {
 		this.myName = myName;
 	}
-
+	
 }

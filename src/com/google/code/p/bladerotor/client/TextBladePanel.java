@@ -1,31 +1,27 @@
 package com.google.code.p.bladerotor.client;
 
-import com.google.code.p.bladerotor.shared.Blade;
-import com.google.gwt.user.client.ui.DecoratedPopupPanel;
+import com.google.code.p.bladerotor.shared.ImageBlade;
+import com.google.code.p.bladerotor.shared.TextBlade;
+import com.google.gwt.user.client.ui.Label;
 
-public abstract class BladePanel extends DecoratedPopupPanel {
-	protected Blade myBlade;
+public class TextBladePanel extends BladePanel {
 	
-	public BladePanel(Blade blade) {
+	protected TextBlade myTextBlade;
+	
+	public TextBladePanel(TextBlade blade) {
+		
+		
 		
 		// PopupPanel's constructor takes 'auto-hide' as its boolean parameter.
 		// If this is set, the panel closes itself automatically when the user
 		// clicks outside of it.
-		super(false);
+		super(blade);
 		
-		myBlade = blade;
+		myTextBlade = (TextBlade) myBlade;
 		
-	}
+		setWidget(new Label(myTextBlade.getName()));
 		
-	public void show() {
-		
-		getWidget().addStyleName("blade");
-
-		//setTitle(myBlade.getName());
-		
-		setPopupPosition(0, 0);
-		setVisible(true);
-		super.show();
+		show();
 	}
 	
 	public int getCenterXOffset() {
